@@ -7,22 +7,16 @@ pipeline {
                 checkout scm
             }
         }
-        stage ("Build") {
-            steps {
-                sh 'npm run install'
-            }
-        } 
         stage ("Test") {
             steps {
+                sh 'npm run install'
                 sh 'npm test'
             }
         }
-        stage ("Deploy") {
+        stage ("Build") {
             steps {
                 sh 'npm run build'
-                sh 'npm start'
             }
-        }
-
+        } 
     }
 }
