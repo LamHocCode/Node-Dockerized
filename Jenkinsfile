@@ -19,16 +19,13 @@ pipeline {
         }
         stage ("Build Image") {
             steps {
-                sh 'docker build -t node-dockerized:1.0 .'
+                sh 'docker build -t lamhoccode/node-dockerized:1.0 .'
             }
         }
         stage("Docker Push") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
-                    sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-                    sh 'docker tag node-dockerized:1.0 lamhoccode/node-dockerized:1.0'
+                withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/')  {
                     sh 'docker push lamhoccode/node-dockerized:1.0'
-                    sh 'docker logout'
                 }
             }
         }
