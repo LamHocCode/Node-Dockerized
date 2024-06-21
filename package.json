@@ -1,0 +1,35 @@
+{
+  "name": "node_dockerized-cicd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "echo 'Build scripts!'",
+    "start": "node index.js"
+  },
+  "presets": [
+    ["@babel/preset-env", { "targets": { "node": "current" } }]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LamHocCode/Node-Dockerized.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LamHocCode/Node-Dockerized/issues"
+  },
+  "homepage": "https://github.com/LamHocCode/Node-Dockerized#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
