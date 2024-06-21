@@ -16,6 +16,11 @@ pipeline {
             steps {
                 sh 'npm run build'
             }
-        } 
+        }
+        stage ("Build Image") {
+            steps {
+                sh 'docker build -t node-dockerized:1.0 .'
+            }
+        }
     }
 }
