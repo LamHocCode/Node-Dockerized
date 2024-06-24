@@ -19,13 +19,13 @@ pipeline {
         }
         stage ("Build Image") {
             steps {
-                sh 'docker build -t lamhoccode/node-dockerized:1.0 .'
+                sh 'docker build -t lamhoccode/node-dockerized:2.0 .'
             }
         }
         stage("Docker Push") {
             steps {
                 withDockerRegistry(credentialsId: 'docker-hub', url: 'https://index.docker.io/v1/')  {
-                    sh 'docker push lamhoccode/node-dockerized:1.0'
+                    sh 'docker push lamhoccode/node-dockerized:2.0'
                 }
             }
         }
