@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage("First build") {
+        stage("First initialize") {
             steps{
             sh 'npm install'
             }
